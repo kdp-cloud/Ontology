@@ -1,8 +1,13 @@
 # Ontology
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/Ontology`. To experiment with that code, run `bin/console` for an interactive prompt.
+This repository contains the solution for the assignment regarding the software developer position.
 
-TODO: Delete this and the text above, and describe your gem
+## Table of contents
+
+- [Prerequisites](#prerequisites)
+- [Installing](#installation)
+- [Usage](#usage)
+- [Tests](#tests)
 
 ## Installation
 
@@ -16,22 +21,81 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions here
+### Get the help function
 
-## Development
+To get some help on the usage of the CLI app enter in one of the following commands:
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```bash
+ruby cli_app.rb -h
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+or
 
-## Contributing
+```bash
+ruby cli_app.rb --help
+```
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/Ontology. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/Ontology/blob/master/CODE_OF_CONDUCT.md).
+### Basic search for an Ontology ID
 
-## License
+To perform a basic search for a specific Ontology identifier, enter one of these commands in the terminal:
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+```bash
+ruby cli_app.rb -i <ontology ID>
+```
 
-## Code of Conduct
+or
 
-Everyone interacting in the Ontology project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/Ontology/blob/master/CODE_OF_CONDUCT.md).
+```bash
+ruby cli_app.rb --id <ontology ID>
+```
+
+#### Example
+
+This and example of a simple request for a Ontology ID like 'efo':
+
+```bash
+ruby cli_app.rb --id efo
+```
+
+The CLI app returns by default a json object okf the Ontology ID provided by the user:
+
+<pre>
+Looking up 'efo' on 'https://www.ebi.ac.uk/ols/api/ontologies' ...
+efo succesfully retrieved!
+--------------------------------------------------------------------------------
+{
+"ontologyId": "efo",
+"title": "Experimental Factor Ontology",
+"description": "The Experimental Factor Ontology (EFO) provides a systematic description of many experimental variables available in EBI databases, and for external projects such as the NHGRI GWAS catalogue. It combines parts of several biological ontologies, such as anatomy, disease and chemical compounds. The scope of EFO is to support the annotation, analysis and visualization of data handled by many groups at the EBI and as the core ontology for OpenTargets.org",
+"numberOfTerms": "37758",
+"status": "LOADED",
+}
+</pre>
+
+### Saving the output of the application to a file
+
+A user can choose to save the result of his query in a json or csv file. The user has specify a `output directory`, the name of the `output file` and the `format` of the output file.
+
+```bash
+ruby cli_app.rb --i <Ontology ID> -d </Path/To/Directory/> -o <filename> -f <format = 'json' or 'csv'>
+```
+
+or
+
+```bash
+ruby cli_app.rb --id <Ontology ID> --outputdir </Path/To/Directory/> --outputfile <filename> --format <format = 'json' or 'csv'>
+```
+
+#### Example
+
+The following example saves the output of the request in a json file:
+
+```bash
+ruby cli_app.rb --id efo --outputdir ./My_Directory/ --outputfile my_json_file --format json
+```
+
+The following example saves the output of the request in a csv file:
+
+```bash
+ruby cli_app.rb --id efo --outputdir ./My_Directory/ --outputfile my_json_file --format csv
+```
