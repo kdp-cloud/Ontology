@@ -20,5 +20,3 @@ gem "json", "~> 2.6"
 gem "colorize", "~> 0.8.1"
 
 gem "csv", "~> 3.2"
-
-gem "Ontology", git: "https://github.com/kdp-cloud/Ontology.git"
