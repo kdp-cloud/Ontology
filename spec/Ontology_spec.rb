@@ -12,7 +12,7 @@ RSpec.describe Ontology do
   it "Should raise an error and return 'nil' when entering a non existing identifier" do
     expect(OntologyApi.get_ontology_by_id("something")).to eq(nil)
   end
-  puts OntologyApi.get_ontology_by_id(5).inspect
+
   it "Should raise an error when entering a number instead of a string" do
     expect(OntologyApi.get_ontology_by_id(5)).to eq(nil)
   end
