@@ -47,13 +47,13 @@ end
 
 # Using the the OptionParser to parse the options submitted by the user.
 OptionParser.new do |opts|
-  opts.banner = "usage: ruby cli_app.rb [options]"
+  opts.banner = "usage: ontology [options]"
   opts.on("-h", "--help", "Show help message") do
     puts opts
     puts "Example:".yellow
-    puts "ruby cli_app.rb [--id efo] [--outputdir /MyPath/To/MyDirectory/] [--outputfile my_json_file] [--format json]".yellow
+    puts "ontology [--id efo] [--outputdir /MyPath/To/MyDirectory/] [--outputfile my_json_file] [--format json]".yellow
     puts "or".yellow
-    puts "ruby cli_app.rb [-i efo] [-d /MyPath/To/MyDirectory/] [-o my_csv_file] [-f csv]".yellow
+    puts "ontology [-i efo] [-d /MyPath/To/MyDirectory/] [-o my_csv_file] [-f csv]".yellow
     exit
   end
   opts.on("-i", "--id ID", "Ontology ID to look up [mandatory]") do |id_val|

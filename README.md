@@ -32,7 +32,7 @@ This installation procedure assumes ruby is correctly installed on the system. I
 
 ### Complete installation
 
-If you want to install the complete application, procede with the following steps. Otherwise, if you only want to implement the gem in your own project, follow the steps described in [Install the gem](#include-the-gem-using-bundler).
+If you want to install the complete application, proceed with the following steps. Otherwise, if you only want to implement the gem in your own project, follow the steps described in [Install the gem](#include-the-gem-using-bundler).
 
 1. Clone the contents of this repository using git
 
@@ -172,13 +172,13 @@ ontology --id <ontology ID>
 
 #### Example
 
-This and example of a simple request for a Ontology ID like 'efo':
+This is an example of a simple request for an Ontology ID like 'efo':
 
 ```bash
 ontology --id efo
 ```
 
-The CLI app returns by default a json object okf the Ontology ID provided by the user:
+The CLI app returns by default a json object of the Ontology ID provided by the user:
 
 <pre>
 Looking up 'efo' on 'https://www.ebi.ac.uk/ols/api/ontologies' ...
@@ -195,7 +195,7 @@ efo succesfully retrieved!
 
 ### Saving the output of the application to a file
 
-A user can choose to save the result of his query in a json or csv file. The user has specify a `output directory`, the name of the `output file` and the `format` of the output file.
+A user can choose to save the result of his query in a json or csv file. The user has to specify an `output directory`, the name of the `output file` and the `format` of the output file.
 
 ```bash
 ontology --i <Ontology ID> -d </Path/To/Directory/> -o <filename> -f <format = 'json' or 'csv'>
