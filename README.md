@@ -2,6 +2,14 @@
 
 This repository contains the solution for the assignment regarding the software developer position.
 
+![](https://img.shields.io/github/license/kdp-cloud/Ontology)
+
+The repository contains the following elements:
+
+- Some reusable functionality, written in ruby, to interact with the [Ontology Lookup Service](https://www.ebi.ac.uk/ols/index). The functionality is packaged in the [lib/Ontology.rb](./lib/Ontology.rb) as a module called `OntologyApi`.
+- A ruby class object to represent the data retrieved from the API. This Class object can also be found on the following location [lib/Ontology.rb](./lib/Ontology.rb) and is called `OntologyItem`.
+- A CLI Application which uses the module and class as a demonstration. It makes requests to the REST API and returns the response to the STDOUT or write it to a json or csv file. The usage of the application is described in the [usage section](#usage) below.
+
 ## Table of contents
 
 - [Prerequisites](#prerequisites)
@@ -10,6 +18,8 @@ This repository contains the solution for the assignment regarding the software 
 - [Tests](#tests)
 
 ## Installation
+
+download the contents of
 
 Install the gem and add to the application's Gemfile by executing:
 
