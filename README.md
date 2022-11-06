@@ -15,7 +15,7 @@ The repository contains the following elements:
 - [Installation](#installation)
   - [Prerequisites](#prerequisites)
   - [Complete installation](#complete-installation)
-  - [Install the gem](#include-the-gem-using-bundler)
+  - [Include the gem using bundler](#include-the-gem-using-bundler)
 - [Usage of the Ontology gem](#usage-of-the-ontology-gem)
   - [Making a GET request to the API](#making-a-get-request-to-the-api)
   - [Processing the information](#processing-the-information)
@@ -32,7 +32,7 @@ This installation procedure assumes ruby is correctly installed on the system. I
 
 ### Complete installation
 
-If you want to install the complete application, proceed with the following steps. Otherwise, if you only want to implement the gem in your own project, follow the steps described in [Install the gem](#include-the-gem-using-bundler).
+If you want to install the complete application, proceed with the following steps. Otherwise, if you only want to implement the gem in your own project, follow the steps described in [Include the gem using bundler](#include-the-gem-using-bundler).
 
 1. Clone the contents of this repository using git
 

@@ -3,10 +3,12 @@ set -euo pipefail
 IFS=$'\n\t'
 set -vx
 
-echo "Installing dependencies..."
+# Installing dependencies...
 
 bundle install
 gem install ./gemfile/Ontology-0.1.0.gem
 
-echo "Install the executable gemfile"
+# Install the executable gemfile ...
 rake install
+
+# Install finished
