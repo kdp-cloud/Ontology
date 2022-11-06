@@ -37,7 +37,7 @@ module OntologyApi
   #      "numberOfTerms": "37758",
   #      "status": "LOADED",
   #      }
-  def get_ontology_by_id(id)
+  def self.get_ontology_by_id(id)
     begin
       raise "The id must be of type 'String'. Please provide a valid ID.".red unless id.is_a?(String)
 
