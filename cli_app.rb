@@ -5,7 +5,10 @@ require "optparse"
 
 # Function that looks up the ontology ID, using the OntologyApi module
 # and stores the information in a OntologyItem Class Object.
-# id: Ontology identifier to look up.
+# Arguments:
+#   id: Ontology identifier to look up.
+# Example:
+#   >> look_up_id("efo")
 def look_up_id(id)
   puts "Looking up '#{id}' on '#{OntologyApi::BASE_URI}' ..."
   res = OntologyApi.get_ontology_by_id(id)
