@@ -10,29 +10,24 @@ The repository contains the following elements:
 - A ruby class object to represent the data retrieved from the API. This Class object can also be found on the following location [lib/Ontology.rb](./lib/Ontology.rb) and is called `OntologyItem`.
 - A CLI Application which uses the module and class as a demonstration. It makes requests to the REST API and returns the response to the STDOUT or write it to a json or csv file. The usage of the application is described in the [usage section](#usage) below. The CLI application will be executable from the command-line.
 
+The module and class object in the Ontology.rb file are packaged in a gem, which can be found in the [gem folder](./gemfile/). The gem is designed so can be used seperately from the CLI application in other projects. The implementation and usage of the gem outisde the CLI application will not be discussed since this is out of the scope of the assignment.
+
 ## Table of contents
 
+- [Prerequisites](#prerequisites)
 - [Installation](#installation)
-  - [Prerequisites](#prerequisites)
-  - [Complete installation](#complete-installation)
-  - [Include the gem using bundler](#include-the-gem-using-bundler)
-- [Usage of the Ontology gem](#usage-of-the-ontology-gem)
-  - [Making a GET request to the API](#making-a-get-request-to-the-api)
-  - [Processing the information](#processing-the-information)
-- [Basic search for an Ontology ID](#usage-of-the-cli-application)
+- [Usage of the CLI application](#usage-of-the-cli-application)
   - [Get the help function](#get-the-help-function)
   - [Basic search for an Ontology ID](#basic-search-for-an-ontology-id)
   - [Saving the output of the application to a file](#saving-the-output-of-the-application-to-a-file)
 
+## Prerequisites
+
+This installation procedure assumes ruby is correctly installed on the system. If not, note that this application requires a version of ruby (>= 2.7.5).
+
 ## Installation
 
-### Prerequisites
-
-This installation procedure assumes ruby is correctly installed on the system. If not, note that this version requires a version of ruby (>= 2.7.5).
-
-### Complete installation
-
-If you want to install the complete application, proceed with the following steps. Otherwise, if you only want to implement the gem in your own project, follow the steps described in [Include the gem using bundler](#include-the-gem-using-bundler).
+This section elaborates on how the complete application (Ontology gem + CLI application) can be installed.
 
 1. Clone the contents of this repository using git
 
@@ -41,106 +36,18 @@ git clone https://github.com/kdp-cloud/Ontology.git
 ```
 
 2. `cd` into the "Ontology" folder (or if you renamed it, the folder where the content was downloaded).
+
 3. Execute the setup file in the "bin" folder
 
 ```bash
 ./bin/setup
 ```
 
-### Include the gem using bundler
-
-Add the following line to the Gemfile:
-
-<pre>
-gem "Ontology", git: "https://github.com/kdp-cloud/Ontology", branch: "master", glob: "*.gemspec"
-</pre>
-
-Use bundler to install the dependecies:
-
-```bash
-bundler install
-```
-
-## Usage of the Ontology gem
-
-### Making a GET request to the API
-
-To make a GET request, you can use the `{ruby} send_request` function as such:
-
-```ruby
-response = send_request("https://www.ebi.ac.uk/ols/api/ontologies/efo")
-```
-
-Alternatively you can use the `get_ontology_by_id` helper function which only requires the ontology identifier instead of the whole URI.
-
-```ruby
-response = get_ontology_by_id("efo")
-```
-
-This line of code returns the same information as before.
-
-### Processing the information
-
-To make the processing of the data easier, the user can make use of the OntologyItem Class Object, which comes with some useful functions.
-
-1. Make an OntologyItem object, based on the response from the API:
-
-```ruby
-my_ontology = OntologyItem.new
-
-my_ontology.json_to_object(response.body)
-
-```
-
-The `json_to_object` function will select the relevant information from the body:
-
-- Ontology ID
-- Full title
-- Description
-- Number of terms
-- Status
-
-2. Prints the content Ontology item to the STDOUT:
-
-```ruby
-my_ontology.print_ontology_item
-```
-
-3. Convert the Ontology item to a json file:
-
-```ruby
-my_ontology.object_to_json("./ExportFolder/exportfile.json")
-
-```
-
-This function writes the following content to "exportfile.json"
-
-<pre>
-{
-  "ontologyId": "efo",
-  "title": "Experimental Factor Ontology",
-  "description": "The Experimental Factor Ontology (EFO) provides a systematic description of many experimental variables available in EBI databases, and for external projects such as the NHGRI GWAS catalogue. It combines parts of several biological ontologies, such as anatomy, disease and chemical compounds. The scope of EFO is to support the annotation, analysis and visualization of data handled by many groups at the EBI and as the core ontology for OpenTargets.org",
-  "numberOfTerms": 37758,
-  "status": "LOADED"
-}
-
-</pre>
-
-4.  Convert the Ontology item to a csv file:
-
-```ruby
-my_ontology.object_to_csv("./ExportFolder/exportfile.csv")
-
-```
-
-This function writes the following content to "exportfile.csv"
-
-<pre>
-ontologyId,title,description,numberOfTerms,status
-efo,Experimental Factor Ontology,"The Experimental Factor Ontology (EFO) provides a systematic description of many experimental variables available in EBI databases, and for external projects such as the NHGRI GWAS catalogue. It combines parts of several biological ontologies, such as anatomy, disease and chemical compounds. The scope of EFO is to support the annotation, analysis and visualization of data handled by many groups at the EBI and as the core ontology for OpenTargets.org",37758,LOADED
-</pre>
+This file will automatically install all dependencies, the 'Ontology' gem file and install it as an executable.
 
 ## Usage of the CLI application
+
+The following section gives a brief description of how the use the CLI application.
 
 ### Get the help function
 
