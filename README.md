@@ -218,5 +218,5 @@ ontology --id efo --outputdir ./My_Directory/ --outputfile my_json_file --format
 The following example saves the output of the request in a csv file:
 
 ```bash
-ontology --id efo --outputdir ./My_Directory/ --outputfile my_json_file --format csv
+ontology --id efo --outputdir ./My_Directory/ --outputfile my_csv_file --format csv
 ```
