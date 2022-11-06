@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "Ontology"
+require_relative "lib/Ontology"
 require "optparse"
 
 # Function that looks up the ontology ID, using the OntologyApi module
