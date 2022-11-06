@@ -8,9 +8,9 @@ The repository contains the following elements:
 
 - Some reusable functionality, written in ruby, to interact with the [Ontology Lookup Service](https://www.ebi.ac.uk/ols/index). The functionality is packaged in the [lib/Ontology.rb](./lib/Ontology.rb) as a module called `OntologyApi`.
 - A ruby class object to represent the data retrieved from the API. This Class object can also be found on the following location [lib/Ontology.rb](./lib/Ontology.rb) and is called `OntologyItem`.
-- A CLI Application which uses the module and class as a demonstration. It makes requests to the REST API and returns the response to the STDOUT or write it to a json or csv file. The usage of the application is described in the [usage section](#usage) below. The CLI application will be executable from the command-line.
+- A CLI Application which uses the module and class as a demonstration. It makes requests to the REST API and returns the response to the STDOUT or write it to a json or csv file. The usage of the application is described in the [usage section](#usage-of-the-cli-application) below. The CLI application will be executable from the command-line.
 
-The module and class object in the Ontology.rb file are packaged in a gem, which can be found in the [gem folder](./gemfile/). The gem is designed so can be used seperately from the CLI application in other projects. The implementation and usage of the gem outisde the CLI application will not be discussed since this is out of the scope of the assignment.
+The module and class object in the Ontology.rb file are packaged in a gem, which can be found in the [gemfile folder](./gemfile/). The gem is designed so can be used seperately from the CLI application in other projects. The implementation and usage of the gem outisde the CLI application will not be discussed since this is out of the scope of the assignment.
 
 ## Table of contents
 
