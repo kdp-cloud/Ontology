@@ -11,6 +11,13 @@ require "optparse"
 #   id: Ontology identifier to look up.
 # Example:
 #   >> look_up_id("efo")
+#   => {
+#      "ontologyId": "efo",
+#      "title": "Experimental Factor Ontology",
+#      "description": "The Experimental Factor Ontology (EFO) provides a systematic description of many experimental variables available in EBI databases, and for external projects such as the NHGRI GWAS catalogue. It combines parts of several biological ontologies, such as anatomy, disease and chemical compounds. The scope of EFO is to support the annotation, analysis and visualization of data handled by many groups at the EBI and as the core ontology for OpenTargets.org",
+#      "numberOfTerms": "37758",
+#      "status": "LOADED",
+#      }
 def look_up_id(id)
   puts "Looking up '#{id}' on '#{OntologyApi::BASE_URI}' ..."
   res = OntologyApi.get_ontology_by_id(id)
