@@ -1,11 +1,14 @@
-#!/usr/bin/ruby
+# frozen_string_literal: true
 
 require "Ontology"
 require "optparse"
 
-# Function that looks up the ontology ID, using the OntologyApi module 
+# Function that looks up the ontology ID, using the OntologyApi module
 # and stores the information in a OntologyItem Class Object.
-# id: Ontology identifier to look up.
+# Arguments:
+#   id: Ontology identifier to look up.
+# Example:
+#   >> look_up_id("efo")
 def look_up_id(id)
   puts "Looking up '#{id}' on '#{OntologyApi::BASE_URI}' ..."
   res = OntologyApi.get_ontology_by_id(id)
@@ -31,7 +34,7 @@ end
 # Options originating from the terminal
 @options = {}
 # Declare an empty ontology class object at the start of the script
-@ontology_obj = OntologyItem.new()
+@ontology_obj = OntologyItem.new
 
 # Using the the OptionParser to parse the options submitted by the user.
 OptionParser.new do |opts|
@@ -53,7 +56,8 @@ OptionParser.new do |opts|
   opts.on("-o", "--outputfile FILE", "Output file [optional]") do |of|
     @options[:outputfile] = of
   end
-  opts.on("-f", "--format FORMAT", "Format of the output file [optional]. Choose between \"json\" and \"csv\"") do |frmt|
+  opts.on("-f", "--format FORMAT",
+          "Format of the output file [optional]. Choose between \"json\" and \"csv\"") do |frmt|
     @options[:outputformat] = frmt
   end
 end.parse!
