@@ -16,6 +16,8 @@ module OntologyApi
   # Returns a Error message if something went wrong.
   # Arguments:
   #   uri: (String)
+  # Example:
+  #   >> send_request("https://www.ebi.ac.uk/ols/api/ontologies/efo")
   def self.send_request(uri)
     begin
       res = Net::HTTP.get_response(uri)
@@ -32,14 +34,6 @@ module OntologyApi
   #   id: (String)
   # Example:
   #   >> get_ontology_by_id("efo")
-  #   => {
-  #      "ontologyId": "efo",
-  #      "title": "Experimental Factor Ontology",
-  #      "description": "The Experimental Factor Ontology (EFO) provides a systematic description of many experimental variables available in EBI databases, and for external projects such as the NHGRI GWAS catalogue. It combines parts of several biological ontologies, such as anatomy, disease and chemical compounds. The scope of EFO is to support the annotation, analysis and visualization of data handled by many groups at the EBI and as the core ontology for OpenTargets.org",
-  # rubocop:enable Layout/LineLength
-  #      "numberOfTerms": "37758",
-  #      "status": "LOADED",
-  #      }
   def self.get_ontology_by_id(id)
     begin
       raise "The id must be of type 'String'. Please provide a valid ID.".red unless id.is_a?(String)
@@ -84,13 +78,13 @@ class OntologyItem
   # Function that converts an object to a json file.
   def object_to_json(filepath)
     begin
-      json_string = pretty_generate({
-                                      "ontologyId" => id,
-                                      "title" => full_ontology_title,
-                                      "description" => ontology_description,
-                                      "numberOfTerms" => number_of_terms,
-                                      "status" => current_status
-                                    })
+      json_string = JSON.pretty_generate({
+                                           "ontologyId" => id,
+                                           "title" => full_ontology_title,
+                                           "description" => ontology_description,
+                                           "numberOfTerms" => number_of_terms,
+                                           "status" => current_status
+                                         })
       File.open(filepath, "w") do |f|
         f.puts(json_string)
       end
